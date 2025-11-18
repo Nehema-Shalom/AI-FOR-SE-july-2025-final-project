@@ -21,3 +21,15 @@
             font-weight: 700;
             color: #d946ef; /* Purple-500 */
         }
+        #sos-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+        #sos-btn:hover {
+            background-color: #db2777; /* Darker pink on hover */
+        }

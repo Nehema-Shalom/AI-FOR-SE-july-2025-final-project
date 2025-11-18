@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warriors In Pink</title>
+    <meta name="description" content="Support group for survivors of violence and abuse. You are not alone.">
+    <meta name="keywords" content="support, survivors, violence, abuse, healing,
+    community, resources, hotline">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+</head>
+<body class="antialiased">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center flex-wrap">
+            <a href="welcome" class="flex items-center space-x-2 text-pink-500 font-bold text-2xl">
+                    <path fill-rule="evenodd"   d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd" />
+                </svg>
+                <span>Warriors In Pink</span>
+            </a>
+            <button id="nav-toggle" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors duration-200" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <svg class="h-6 w-6 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>   
+            <div id="nav-menu" class="hidden w-full md:flex md:items-center md:w-auto mt-4 md:mt-0">
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg">
+                    <a href="tel:+18001234567" class="inline-flex items-center justify-center bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200 shadow-md transform hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.138a11.042 11.042 0 005.516 5.516l1.139-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        (254)0732 172 000
+                    </a>
+                   <li><a href="about.html" class="nav-link hover:text-pink-500 transition-colors duration-200">About Us</a></li>
+                   <li><a href="stories.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Stories</a></li>
+                   <li><a href="resources.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Resources</a></li>
+                   <li><a href="hotline.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Hotline</a></li>
+                   <li><a href="faqs.html" class="nav-link hover:text-pink-500 transition-colors duration-200">FAQs</a></li>
+                   </ul>
+                </div>
+                <button
+                    id="sos-btn"
+                    onclick="openSOSPopup()"
+                    class="fixed bottom-6 right-6 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition transform hover:scale-105">
+                    EMERGENCY BUTTON
+                </button>
+                <!-- Confirmation Popup -->
+<div id="sos-popup" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+    <h2 class="text-xl font-semibold text-pink-600 mb-2">Hello</h2>
+  <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-sm text-center animate-fadeIn">
+    <p class="text-gray-700 mb-4"><b>You’re about to call the GBV Helpline (1195)</b>.  
+    <div class="flex justify-center gap-4">
+      <button 
+        onclick="confirmSOS()"
+        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold shadow-md transition">
+        Yes, Call Now
+      </button>
+      <button 
+        onclick="closeSOSPopup()"
+        class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-semibold shadow-md transition">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+                  
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        <section id="welcome" class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+            <div class="md:w-2/3">
+                <p class="text-lg md:text-xl text-gray-600">After an encounter with sexual assault and violence, it can be very hard to find a sense of worth and belonging. That is why Warriors in Pink is here, to help you find your voice again. To remind you that you are not what happened to you. You strong, you are loved, you are beautiful, you are worthy, and you are not alone.</p>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">Welcome to Warriors In Pink</h1>
+            </div>
+            <div class="md:w-1/3 w-full">
+                <img src="https://plus.unsplash.com/premium_photo-1723485635064-37739fd9918e?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A symbolic image of a woman finding peace" class="rounded-lg shadow-md w-full">
+            </div>
+        </section>
+         <section id="contact-form" class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Connect With Us</h2>
+            <form id="user-form" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-gray-700 font-medium mb-1">How do we refer to you? <span class="text-sm italic text-gray-500">(You can use a nickname if you wish)</span></label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name here..." required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200">
+                </div>
+                
+                <fieldset class="border border-gray-300 p-4 rounded-md">
+                    <legend class="text-lg font-medium text-gray-700">What is your gender?</legend>
+                    <div class="flex flex-col space-y-2 mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" id="male" name="gender" value="male" class="form-radio text-pink-500">
+                            <span class="ml-2 text-gray-600">Male</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" id="female" name="gender" value="female" class="form-radio text-pink-500">
+                            <span class="ml-2 text-gray-600">Female</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" id="non-binary" name="gender" value="non-binary" class="form-radio text-pink-500">
+                            <span class="ml-2 text-gray-600">Non-binary</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" id="prefer-not-to-say" name="gender" value="prefer-not-to-say" class="form-radio text-pink-500">
+                            <span class="ml-2 text-gray-600">Prefer not to say</span>
+                        </label>
+                    </div>
+                </fieldset>
+                
+                <button type="submit" class="w-full bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200 shadow-md transform hover:scale-105">
+                    Submit
+                </button>
+            </form>
+        </section>
+        <section id="ai-chat-support" class="bg-white rounded-xl shadow-2xl p-6 md:p-12 mb-10">
+<!--  Floating AI Chatbot -->
+<div id="floating-chatbot" 
+     class="fixed top-6 left-6 bg-pink-50 rounded-2xl shadow-2xl border border-pink-200 w-80 h-12 overflow-hidden flex flex-col p-4 z-50 transition-all duration-300 hover:shadow-pink-200">
+  
+  <!-- Header -->
+  <div onclick="toggleChat()"class="flex items-center justify-between bg pink-500 text-white px-4 py-2 cursor-pointer">
+    <h3 class="text-lg font-bold text-pink-600">Our AI Companion</h3>
+    <button id="toggle-icon" class="text-lg font-bold text-black 600">+</button>
+  </div>
+
+  <!-- Chat Window -->
+  <div id="chat-content" class="flex-1 flex-col p-4 hidden">
+    <div id="chatbox" class="flex-1 overflow-y-auto bg-pink-100 rounded-lg p-3 space-y-2 mb-2">
+        <div class="text-gray-500 text-sm text-center">Hi there! I’m here if you need me.</div>
+  </div>
+
+  <!-- Chat Input -->
+  <div class="mt-3 flex space-x-2">
+    <input id="user-input" type="text" placeholder="Type here..." 
+           class="flex-1 p-2 rounded-lg border border-pink-300 focus:ring-2 focus:ring-pink-400 focus:outline-none text-sm">
+    <button onclick="sendMessage()" 
+            class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-3 py-2 rounded-lg transition duration-200">
+      send
+    </button>
+  </div>
+</div>
+
+        </section>
+             <section id="statistics" class="bg-purple-100 rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+    <div class="relative w-full lg:w-1/3 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://images.pexels.com/photos/7947837/pexels-photo-7947837.jpeg" alt="A woman smiling at the camera" class="w-full h-auto object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6 text-white text-xl font-bold">
+        </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 flex items-start space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-400 opacity-70" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10.02 4.675C8.89 3.99 7.7 3.305 6.456 2.583C5.163 1.838 3.513 1.884 2.126 2.766C0.739 3.649 0.043 5.176 0.174 6.776C0.305 8.376 1.135 9.773 2.522 10.655C3.909 11.537 5.559 11.491 6.848 10.746C8.138 10.001 9.328 9.316 10.457 8.631L10.96 11.233C10.748 12.333 10.158 13.523 9.473 14.283C8.835 15.003 7.962 15.688 7.089 16.326L6.586 19.348C7.433 19.22 8.28 19.124 9.127 18.898C10.023 18.671 10.87 18.232 11.666 17.636C12.462 17.04 13.109 16.295 13.655 15.399C14.24 14.552 14.638 13.565 14.865 12.521C15.047 11.625 15.111 10.729 15.111 9.882C15.111 8.88 14.99 7.822 14.592 6.819C14.195 5.816 13.628 4.97 13.032 4.225C12.385 3.539 11.625 2.943 10.87 2.441C10.023 1.94 9.227 1.542 8.431 1.259L7.485 1.762C8.381 2.213 9.177 2.765 9.873 3.403C10.459 3.999 10.782 4.492 10.87 4.675L10.02 4.675ZM20.02 4.675C18.89 3.99 17.7 3.305 16.456 2.583C15.163 1.838 13.513 1.884 12.126 2.766C10.739 3.649 10.043 5.176 10.174 6.776C10.305 8.376 11.135 9.773 12.522 10.655C13.909 11.537 15.559 11.491 16.848 10.746C18.138 10.001 19.328 9.316 20.457 8.631L20.96 11.233C20.748 12.333 20.158 13.523 19.473 14.283C18.835 15.003 17.962 15.688 17.089 16.326L16.586 19.348C17.433 19.22 18.28 19.124 19.127 18.898C20.023 18.671 20.87 18.232 21.666 17.636C22.462 17.04 23.109 16.295 23.655 15.399C24.24 14.552 24.638 13.565 24.865 12.521C25.047 11.625 25.111 10.729 25.111 9.882C25.111 8.88 24.99 7.822 24.592 6.819C24.195 5.816 23.628 4.97 23.032 4.225C22.385 3.539 21.625 2.943 20.87 2.441C20.023 1.94 19.227 1.542 18.431 1.259L17.485 1.762C18.381 2.213 19.177 2.765 19.873 3.403C20.459 3.999 20.782 4.492 20.87 4.675L20.02 4.675Z"/>
+        </svg>
+        <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-gray-800">Sexual Violence Statistics</h3>
+            <p class="text-xl md:text-2xl font-light italic text-gray-800 leading-relaxed">"Did you know that according to the 2022 Kenya Demographic Health Survey, 16% of women in Kenya have experienced physical violence since the age of 15, and 13% have experienced sexual violence at some point in their lives?"</p>
+        </div>
+    </div>
+</section>
+       </section>
+             <section id="statistics" class="bg-purple-100 rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+    <div class="relative w-full lg:w-1/3 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://plus.unsplash.com/premium_photo-1665203618989-e04554a539b1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A woman smiling at the camera" class="w-full h-auto object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6 text-white text-xl font-bold">
+        </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 flex items-start space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-400 opacity-70" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10.02 4.675C8.89 3.99 7.7 3.305 6.456 2.583C5.163 1.838 3.513 1.884 2.126 2.766C0.739 3.649 0.043 5.176 0.174 6.776C0.305 8.376 1.135 9.773 2.522 10.655C3.909 11.537 5.559 11.491 6.848 10.746C8.138 10.001 9.328 9.316 10.457 8.631L10.96 11.233C10.748 12.333 10.158 13.523 9.473 14.283C8.835 15.003 7.962 15.688 7.089 16.326L6.586 19.348C7.433 19.22 8.28 19.124 9.127 18.898C10.023 18.671 10.87 18.232 11.666 17.636C12.462 17.04 13.109 16.295 13.655 15.399C14.24 14.552 14.638 13.565 14.865 12.521C15.047 11.625 15.111 10.729 15.111 9.882C15.111 8.88 14.99 7.822 14.592 6.819C14.195 5.816 13.628 4.97 13.032 4.225C12.385 3.539 11.625 2.943 10.87 2.441C10.023 1.94 9.227 1.542 8.431 1.259L7.485 1.762C8.381 2.213 9.177 2.765 9.873 3.403C10.459 3.999 10.782 4.492 10.87 4.675L10.02 4.675ZM20.02 4.675C18.89 3.99 17.7 3.305 16.456 2.583C15.163 1.838 13.513 1.884 12.126 2.766C10.739 3.649 10.043 5.176 10.174 6.776C10.305 8.376 11.135 9.773 12.522 10.655C13.909 11.537 15.559 11.491 16.848 10.746C18.138 10.001 19.328 9.316 20.457 8.631L20.96 11.233C20.748 12.333 20.158 13.523 19.473 14.283C18.835 15.003 17.962 15.688 17.089 16.326L16.586 19.348C17.433 19.22 18.28 19.124 19.127 18.898C20.023 18.671 20.87 18.232 21.666 17.636C22.462 17.04 23.109 16.295 23.655 15.399C24.24 14.552 24.638 13.565 24.865 12.521C25.047 11.625 25.111 10.729 25.111 9.882C25.111 8.88 24.99 7.822 24.592 6.819C24.195 5.816 23.628 4.97 23.032 4.225C22.385 3.539 21.625 2.943 20.87 2.441C20.023 1.94 19.227 1.542 18.431 1.259L17.485 1.762C18.381 2.213 19.177 2.765 19.873 3.403C20.459 3.999 20.782 4.492 20.87 4.675L20.02 4.675Z"/>
+        </svg>
+        <div class="space-y-4">
+            <p class="text-xl md:text-2xl font-light italic text-gray-800 leading-relaxed">The fact that the perpetrators of this heinous acts are rarely brought to justice is even more frustrating.They thrive on our silence,our fear.Let us stand with Warriors in Pink to fight for justice,to reclaime our power and our voice.We are in this together."</p>
+        </div>
+    </div>
+</section>
+        <section id="about" class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+            <div class="md:w-2/3">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">About Us</h1>
+                <p class="text-lg md:text-xl text-gray-600">Warriors In Pink is more than just a support group — we are a <strong>safe haven</strong>, a family, and a voice for survivors of abuse and violence. 💕</p>
+                <p class="text-lg text-gray-600 mb-4">We understand that healing isn’t linear. Some days are heavy, and others feel lighter. That’s why our mission is to <em>walk with you through every step of your journey</em> — You are not alone. 🌷</p>
+                <p class="text-lg text-gray-600">Founded by survivors, for survivors. We believe in the strength of sisterhood and the power of shared stories. Together, we rise.</p>
+            </div>
+            <div class="md:w-1/3 w-full">
+                <img src="https://plus.unsplash.com/premium_photo-1723485690961-729f9b7818d3?q=80&w=844&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A symbolic image of a woman finding peace" class="rounded-lg shadow-md w-full">
+            </div>
+        </section>
+                <section id="stories" class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Shared Heart-to-Heart🌺💖</h2>
+            <p class="text-lg text-gray-600 mb-6">Read inspiring stories from our survivors. They have faced similar situations and have found the support they need.</p>
+            <section id="featured-story" class="bg-purple-100 rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+    <div class="relative w-full lg:w-1/3 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://plus.unsplash.com/premium_photo-1679429321023-dff2ea455b0c?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A woman smiling at the camera" class="w-full h-auto object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6 text-white text-xl font-bold">
+        </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 flex items-start space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-400 opacity-70" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10.02 4.675C8.89 3.99 7.7 3.305 6.456 2.583C5.163 1.838 3.513 1.884 2.126 2.766C0.739 3.649 0.043 5.176 0.174 6.776C0.305 8.376 1.135 9.773 2.522 10.655C3.909 11.537 5.559 11.491 6.848 10.746C8.138 10.001 9.328 9.316 10.457 8.631L10.96 11.233C10.748 12.333 10.158 13.523 9.473 14.283C8.835 15.003 7.962 15.688 7.089 16.326L6.586 19.348C7.433 19.22 8.28 19.124 9.127 18.898C10.023 18.671 10.87 18.232 11.666 17.636C12.462 17.04 13.109 16.295 13.655 15.399C14.24 14.552 14.638 13.565 14.865 12.521C15.047 11.625 15.111 10.729 15.111 9.882C15.111 8.88 14.99 7.822 14.592 6.819C14.195 5.816 13.628 4.97 13.032 4.225C12.385 3.539 11.625 2.943 10.87 2.441C10.023 1.94 9.227 1.542 8.431 1.259L7.485 1.762C8.381 2.213 9.177 2.765 9.873 3.403C10.459 3.999 10.782 4.492 10.87 4.675L10.02 4.675ZM20.02 4.675C18.89 3.99 17.7 3.305 16.456 2.583C15.163 1.838 13.513 1.884 12.126 2.766C10.739 3.649 10.043 5.176 10.174 6.776C10.305 8.376 11.135 9.773 12.522 10.655C13.909 11.537 15.559 11.491 16.848 10.746C18.138 10.001 19.328 9.316 20.457 8.631L20.96 11.233C20.748 12.333 20.158 13.523 19.473 14.283C18.835 15.003 17.962 15.688 17.089 16.326L16.586 19.348C17.433 19.22 18.28 19.124 19.127 18.898C20.023 18.671 20.87 18.232 21.666 17.636C22.462 17.04 23.109 16.295 23.655 15.399C24.24 14.552 24.638 13.565 24.865 12.521C25.047 11.625 25.111 10.729 25.111 9.882C25.111 8.88 24.99 7.822 24.592 6.819C24.195 5.816 23.628 4.97 23.032 4.225C22.385 3.539 21.625 2.943 20.87 2.441C20.023 1.94 19.227 1.542 18.431 1.259L17.485 1.762C18.381 2.213 19.177 2.765 19.873 3.403C20.459 3.999 20.782 4.492 20.87 4.675L20.02 4.675Z"/>
+        </svg>
+        <div class="space-y-4">
+            <p class="text-xl md:text-2xl font-light italic text-gray-800 leading-relaxed">"I used to feel like my story was a cage.But the Warriors In Pink Community helped me see it as a key—a key to unlock my own future and to show others that there is hope on the other side."</p>
+            <p class="text-lg font-semibold text-gray-600">— Anonymous survivor</p>
+        </div>
+    </div>
+</section>
+<h3 class="text-xl font-semibold text-pink-600 mb-2">Finding My Voice</h3>
+     <section id="featured-story" class="bg-purple-100 rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+    <div class="relative w-full lg:w-1/3 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://plus.unsplash.com/premium_photo-1663089925184-498febf14b79?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A woman smiling at the camera" class="w-full h-auto object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6 text-white text-xl font-bold">
+        </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 flex items-start space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-400 opacity-70" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10.02 4.675C8.89 3.99 7.7 3.305 6.456 2.583C5.163 1.838 3.513 1.884 2.126 2.766C0.739 3.649 0.043 5.176 0.174 6.776C0.305 8.376 1.135 9.773 2.522 10.655C3.909 11.537 5.559 11.491 6.848 10.746C8.138 10.001 9.328 9.316 10.457 8.631L10.96 11.233C10.748 12.333 10.158 13.523 9.473 14.283C8.835 15.003 7.962 15.688 7.089 16.326L6.586 19.348C7.433 19.22 8.28 19.124 9.127 18.898C10.023 18.671 10.87 18.232 11.666 17.636C12.462 17.04 13.109 16.295 13.655 15.399C14.24 14.552 14.638 13.565 14.865 12.521C15.047 11.625 15.111 10.729 15.111 9.882C15.111 8.88 14.99 7.822 14.592 6.819C14.195 5.816 13.628 4.97 13.032 4.225C12.385 3.539 11.625 2.943 10.87 2.441C10.023 1.94 9.227 1.542 8.431 1.259L7.485 1.762C8.381 2.213 9.177 2.765 9.873 3.403C10.459 3.999 10.782 4.492 10.87 4.675L10.02 4.675ZM20.02 4.675C18.89 3.99 17.7 3.305 16.456 2.583C15.163 1.838 13.513 1.884 12.126 2.766C10.739 3.649 10.043 5.176 10.174 6.776C10.305 8.376 11.135 9.773 12.522 10.655C13.909 11.537 15.559 11.491 16.848 10.746C18.138 10.001 19.328 9.316 20.457 8.631L20.96 11.233C20.748 12.333 20.158 13.523 19.473 14.283C18.835 15.003 17.962 15.688 17.089 16.326L16.586 19.348C17.433 19.22 18.28 19.124 19.127 18.898C20.023 18.671 20.87 18.232 21.666 17.636C22.462 17.04 23.109 16.295 23.655 15.399C24.24 14.552 24.638 13.565 24.865 12.521C25.047 11.625 25.111 10.729 25.111 9.882C25.111 8.88 24.99 7.822 24.592 6.819C24.195 5.816 23.628 4.97 23.032 4.225C22.385 3.539 21.625 2.943 20.87 2.441C20.023 1.94 19.227 1.542 18.431 1.259L17.485 1.762C18.381 2.213 19.177 2.765 19.873 3.403C20.459 3.999 20.782 4.492 20.87 4.675L20.02 4.675Z"/>
+        </svg>
+        <div class="space-y-4">
+            <p class="text-xl md:text-2xl font-light italic text-gray-800 leading-relaxed">"I used to believe my silence was my only protection. But through Warriors in Pink, I learned that my voice is my strength. Sharing my story here feels like taking my power back, and I hope it helps others realize they're not alone. The support I've received has been life-changing."</p>
+            <p class="text-lg font-semibold text-gray-600">— Anonymous survivor</p>
+        </div>
+    </div>
+</section>
+            <h3 class="text-xl font-semibold text-pink-600 mb-2">A Journey to Healing</h3>
+                 <section id="featured-story" class="bg-purple-100 rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+    <div class="relative w-full lg:w-1/3 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://images.unsplash.com/photo-1560821829-18a5fbb8b4ce?q=80&w=812&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A woman smiling at the camera" class="w-full h-auto object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6 text-white text-xl font-bold">
+        </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 flex items-start space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-400 opacity-70" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10.02 4.675C8.89 3.99 7.7 3.305 6.456 2.583C5.163 1.838 3.513 1.884 2.126 2.766C0.739 3.649 0.043 5.176 0.174 6.776C0.305 8.376 1.135 9.773 2.522 10.655C3.909 11.537 5.559 11.491 6.848 10.746C8.138 10.001 9.328 9.316 10.457 8.631L10.96 11.233C10.748 12.333 10.158 13.523 9.473 14.283C8.835 15.003 7.962 15.688 7.089 16.326L6.586 19.348C7.433 19.22 8.28 19.124 9.127 18.898C10.023 18.671 10.87 18.232 11.666 17.636C12.462 17.04 13.109 16.295 13.655 15.399C14.24 14.552 14.638 13.565 14.865 12.521C15.047 11.625 15.111 10.729 15.111 9.882C15.111 8.88 14.99 7.822 14.592 6.819C14.195 5.816 13.628 4.97 13.032 4.225C12.385 3.539 11.625 2.943 10.87 2.441C10.023 1.94 9.227 1.542 8.431 1.259L7.485 1.762C8.381 2.213 9.177 2.765 9.873 3.403C10.459 3.999 10.782 4.492 10.87 4.675L10.02 4.675ZM20.02 4.675C18.89 3.99 17.7 3.305 16.456 2.583C15.163 1.838 13.513 1.884 12.126 2.766C10.739 3.649 10.043 5.176 10.174 6.776C10.305 8.376 11.135 9.773 12.522 10.655C13.909 11.537 15.559 11.491 16.848 10.746C18.138 10.001 19.328 9.316 20.457 8.631L20.96 11.233C20.748 12.333 20.158 13.523 19.473 14.283C18.835 15.003 17.962 15.688 17.089 16.326L16.586 19.348C17.433 19.22 18.28 19.124 19.127 18.898C20.023 18.671 20.87 18.232 21.666 17.636C22.462 17.04 23.109 16.295 23.655 15.399C24.24 14.552 24.638 13.565 24.865 12.521C25.047 11.625 25.111 10.729 25.111 9.882C25.111 8.88 24.99 7.822 24.592 6.819C24.195 5.816 23.628 4.97 23.032 4.225C22.385 3.539 21.625 2.943 20.87 2.441C20.023 1.94 19.227 1.542 18.431 1.259L17.485 1.762C18.381 2.213 19.177 2.765 19.873 3.403C20.459 3.999 20.782 4.492 20.87 4.675L20.02 4.675Z"/>
+        </svg>
+        <div class="space-y-4">
+            <p class="text-xl md:text-2xl font-light italic text-gray-800 leading-relaxed">"for me healing is not a destination its a journey. It's about finding strength in vulnerability and embracing self-love. Every small step I take is a testament to my courage."</p>
+            <p class="text-lg font-semibold text-gray-600">— Anonymous survivor</p>
+        </div>
+    </div>
+</section>
+            <h3 class="text-xl font-semibold text-pink-600 mb-2">From Survivor to Thriver</h3>
+
+     <section id="featured-story" class="bg-purple-100 rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+    <div class="relative w-full lg:w-1/3 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://images.unsplash.com/photo-1630939687530-241d630735df?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A woman smiling at the camera" class="w-full h-auto object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6 text-white text-xl font-bold">
+        </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 flex items-start space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-400 opacity-70" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10.02 4.675C8.89 3.99 7.7 3.305 6.456 2.583C5.163 1.838 3.513 1.884 2.126 2.766C0.739 3.649 0.043 5.176 0.174 6.776C0.305 8.376 1.135 9.773 2.522 10.655C3.909 11.537 5.559 11.491 6.848 10.746C8.138 10.001 9.328 9.316 10.457 8.631L10.96 11.233C10.748 12.333 10.158 13.523 9.473 14.283C8.835 15.003 7.962 15.688 7.089 16.326L6.586 19.348C7.433 19.22 8.28 19.124 9.127 18.898C10.023 18.671 10.87 18.232 11.666 17.636C12.462 17.04 13.109 16.295 13.655 15.399C14.24 14.552 14.638 13.565 14.865 12.521C15.047 11.625 15.111 10.729 15.111 9.882C15.111 8.88 14.99 7.822 14.592 6.819C14.195 5.816 13.628 4.97 13.032 4.225C12.385 3.539 11.625 2.943 10.87 2.441C10.023 1.94 9.227 1.542 8.431 1.259L7.485 1.762C8.381 2.213 9.177 2.765 9.873 3.403C10.459 3.999 10.782 4.492 10.87 4.675L10.02 4.675ZM20.02 4.675C18.89 3.99 17.7 3.305 16.456 2.583C15.163 1.838 13.513 1.884 12.126 2.766C10.739 3.649 10.043 5.176 10.174 6.776C10.305 8.376 11.135 9.773 12.522 10.655C13.909 11.537 15.559 11.491 16.848 10.746C18.138 10.001 19.328 9.316 20.457 8.631L20.96 11.233C20.748 12.333 20.158 13.523 19.473 14.283C18.835 15.003 17.962 15.688 17.089 16.326L16.586 19.348C17.433 19.22 18.28 19.124 19.127 18.898C20.023 18.671 20.87 18.232 21.666 17.636C22.462 17.04 23.109 16.295 23.655 15.399C24.24 14.552 24.638 13.565 24.865 12.521C25.047 11.625 25.111 10.729 25.111 9.882C25.111 8.88 24.99 7.822 24.592 6.819C24.195 5.816 23.628 4.97 23.032 4.225C22.385 3.539 21.625 2.943 20.87 2.441C20.023 1.94 19.227 1.542 18.431 1.259L17.485 1.762C18.381 2.213 19.177 2.765 19.873 3.403C20.459 3.999 20.782 4.492 20.87 4.675L20.02 4.675Z"/>
+        </svg>
+        <div class="space-y-4">
+            <p class="text-xl md:text-2xl font-light italic text-gray-800 leading-relaxed">"I used to just survive the storm, but now I'm learning to dance in the rain. My past doesn't define me."</p>
+            <p class="text-lg font-semibold text-gray-600">— Anonymous survivor</p>
+        </div>
+    </div>
+</section>
+          
+
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Share Your Story Anonymously ❤️</h2>
+    <p class="text-lg text-gray-600 mb-4">Your experiences can provide strength and hope to others. Share your journey in a safe and anonymous space. We're here to listen.</p>
+
+    <form id="story-form" class="space-y-6">
+        <div>
+            <label for="story-content" class="block text-gray-700 font-medium mb-2">Write your story here:</label>
+            <textarea id="story-content" name="story-content" rows="8" placeholder="Start typing your story..." required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200 shadow-md transform hover:scale-105">
+            Submit Anonymously
+        </button>
+    </form>
+
+    <!-- Submission success message -->
+    <div id="story-success-message" class="hidden mt-6 p-4 rounded-lg bg-green-100 text-green-700 font-medium text-center">
+        Thank you for sharing your story. Your courage will inspire others.
+    </div>
+</section>
+        <section id="resources" class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Relevant Resources</h2>
+            <p class="text-lg text-gray-600">Access a variety of resources to support your healing journey. From articles and guides to support groups and peer support, we have everything you need.</p>
+            <ul class="space-y-4">
+    <li>
+        <a href="https://www.rainn.org/" target="_blank" class="block bg-pink-100 p-4 rounded-lg shadow-sm hover:bg-pink-200 transition-colors duration-200">
+            <h4 class="text-xl font-semibold text-pink-700">RAINN (Rape, Abuse & Incest National Network)</h4>
+            <p class="text-gray-600 mt-1">America's largest anti-sexual violence organization. Offers a national hotline, resources, and support.</p>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.thehotline.org/" target="_blank" class="block bg-pink-100 p-4 rounded-lg shadow-sm hover:bg-pink-200 transition-colors duration-200">
+            <h4 class="text-xl font-semibold text-pink-700">The National Domestic Violence Hotline</h4>
+            <p class="text-gray-600 mt-1">Provides essential tools and support to help survivors of domestic violence.</p>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.womenslaw.org/" target="_blank" class="block bg-pink-100 p-4 rounded-lg shadow-sm hover:bg-pink-200 transition-colors duration-200">
+            <h4 class="text-xl font-semibold text-pink-700">WomensLaw.org</h4>
+            <p class="text-gray-600 mt-1">Legal information and support for survivors of domestic violence and sexual assault.</p>
+        </a>
+    </li>
+</ul>
+</section>
+    <section id="hotline" class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Hotline</h2>
+            <p class="text-lg text-gray-600">Contact our hotline for immediate support. Our team of trained professionals is available 24/7 to help.</p>
+            <a href="tel:+18001234567" class="inline-flex items-center justify-center bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200 shadow-md transform hover:scale-105">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.138a11.042 11.042 0 005.516 5.516l1.139-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+    </svg>
+    (254)0732 172 000
+</a>
+        </section>
+                </section>
+             <section id="statistics" class="bg-purple-100 rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+    <div class="relative w-full lg:w-1/3 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://images.pexels.com/photos/7947837/pexels-photo-7947837.jpeg" alt="A woman smiling at the camera" class="w-full h-auto object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6 text-white text-xl font-bold">
+        </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 flex items-start space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-400 opacity-70" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10.02 4.675C8.89 3.99 7.7 3.305 6.456 2.583C5.163 1.838 3.513 1.884 2.126 2.766C0.739 3.649 0.043 5.176 0.174 6.776C0.305 8.376 1.135 9.773 2.522 10.655C3.909 11.537 5.559 11.491 6.848 10.746C8.138 10.001 9.328 9.316 10.457 8.631L10.96 11.233C10.748 12.333 10.158 13.523 9.473 14.283C8.835 15.003 7.962 15.688 7.089 16.326L6.586 19.348C7.433 19.22 8.28 19.124 9.127 18.898C10.023 18.671 10.87 18.232 11.666 17.636C12.462 17.04 13.109 16.295 13.655 15.399C14.24 14.552 14.638 13.565 14.865 12.521C15.047 11.625 15.111 10.729 15.111 9.882C15.111 8.88 14.99 7.822 14.592 6.819C14.195 5.816 13.628 4.97 13.032 4.225C12.385 3.539 11.625 2.943 10.87 2.441C10.023 1.94 9.227 1.542 8.431 1.259L7.485 1.762C8.381 2.213 9.177 2.765 9.873 3.403C10.459 3.999 10.782 4.492 10.87 4.675L10.02 4.675ZM20.02 4.675C18.89 3.99 17.7 3.305 16.456 2.583C15.163 1.838 13.513 1.884 12.126 2.766C10.739 3.649 10.043 5.176 10.174 6.776C10.305 8.376 11.135 9.773 12.522 10.655C13.909 11.537 15.559 11.491 16.848 10.746C18.138 10.001 19.328 9.316 20.457 8.631L20.96 11.233C20.748 12.333 20.158 13.523 19.473 14.283C18.835 15.003 17.962 15.688 17.089 16.326L16.586 19.348C17.433 19.22 18.28 19.124 19.127 18.898C20.023 18.671 20.87 18.232 21.666 17.636C22.462 17.04 23.109 16.295 23.655 15.399C24.24 14.552 24.638 13.565 24.865 12.521C25.047 11.625 25.111 10.729 25.111 9.882C25.111 8.88 24.99 7.822 24.592 6.819C24.195 5.816 23.628 4.97 23.032 4.225C22.385 3.539 21.625 2.943 20.87 2.441C20.023 1.94 19.227 1.542 18.431 1.259L17.485 1.762C18.381 2.213 19.177 2.765 19.873 3.403C20.459 3.999 20.782 4.492 20.87 4.675L20.02 4.675Z"/>
+        </svg>
+        <div class="space-y-4">
+            <p class="text-xl md:text-2xl font-light italic text-gray-800 leading-relaxed">"Did you know that according to the 2022 Kenya Demographic Health Survey, 16% of women in Kenya have experienced physical violence since the age of 15, and 13% have experienced sexual violence at some point in their lives?"</p>
+        </div>
+    </div>
+</section>
+       </section>
+             <section id="statistics" class="bg-purple-100 rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+    <div class="relative w-full lg:w-1/3 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://plus.unsplash.com/premium_photo-1665203618989-e04554a539b1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A woman smiling at the camera" class="w-full h-auto object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6 text-white text-xl font-bold">
+        </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 flex items-start space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-400 opacity-70" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10.02 4.675C8.89 3.99 7.7 3.305 6.456 2.583C5.163 1.838 3.513 1.884 2.126 2.766C0.739 3.649 0.043 5.176 0.174 6.776C0.305 8.376 1.135 9.773 2.522 10.655C3.909 11.537 5.559 11.491 6.848 10.746C8.138 10.001 9.328 9.316 10.457 8.631L10.96 11.233C10.748 12.333 10.158 13.523 9.473 14.283C8.835 15.003 7.962 15.688 7.089 16.326L6.586 19.348C7.433 19.22 8.28 19.124 9.127 18.898C10.023 18.671 10.87 18.232 11.666 17.636C12.462 17.04 13.109 16.295 13.655 15.399C14.24 14.552 14.638 13.565 14.865 12.521C15.047 11.625 15.111 10.729 15.111 9.882C15.111 8.88 14.99 7.822 14.592 6.819C14.195 5.816 13.628 4.97 13.032 4.225C12.385 3.539 11.625 2.943 10.87 2.441C10.023 1.94 9.227 1.542 8.431 1.259L7.485 1.762C8.381 2.213 9.177 2.765 9.873 3.403C10.459 3.999 10.782 4.492 10.87 4.675L10.02 4.675ZM20.02 4.675C18.89 3.99 17.7 3.305 16.456 2.583C15.163 1.838 13.513 1.884 12.126 2.766C10.739 3.649 10.043 5.176 10.174 6.776C10.305 8.376 11.135 9.773 12.522 10.655C13.909 11.537 15.559 11.491 16.848 10.746C18.138 10.001 19.328 9.316 20.457 8.631L20.96 11.233C20.748 12.333 20.158 13.523 19.473 14.283C18.835 15.003 17.962 15.688 17.089 16.326L16.586 19.348C17.433 19.22 18.28 19.124 19.127 18.898C20.023 18.671 20.87 18.232 21.666 17.636C22.462 17.04 23.109 16.295 23.655 15.399C24.24 14.552 24.638 13.565 24.865 12.521C25.047 11.625 25.111 10.729 25.111 9.882C25.111 8.88 24.99 7.822 24.592 6.819C24.195 5.816 23.628 4.97 23.032 4.225C22.385 3.539 21.625 2.943 20.87 2.441C20.023 1.94 19.227 1.542 18.431 1.259L17.485 1.762C18.381 2.213 19.177 2.765 19.873 3.403C20.459 3.999 20.782 4.492 20.87 4.675L20.02 4.675Z"/>
+        </svg>
+        <div class="space-y-4">
+            <p class="text-xl md:text-2xl font-light italic text-gray-800 leading-relaxed">Despite this worrying numbers, the perpetrators are rarely brought to justice.For instance, a 2022 study in Mombasa County found that of all reported cases of sexual assault, only 57.7% proceeded to court. Of the cases that actually reached a judgment, a worrying 23% were either withdrawn or ended in acquittal. This high rate of case attrition is often due to a lack of forensic evidence, poor witness testimonies, and survivors withdrawing their cases, underscoring the systemic barriers to justice.</p>
+        </div>
+    </div>
+</section>
+ <!--  AI Support Chatbot Section -->
+<section id="chatbot" class="bg-pink-50 rounded-2xl shadow-lg p-6 md:p-10 mt-12">
+  <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Talk to Our AI Support Companion</h2>
+  <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+    You’re safe here, angel. Our friendly AI is here to listen, share supportive words, and connect you with helpful resources.
+  </p>
+
+  <!-- Chat Container -->
+  <div class="bg-white rounded-xl shadow-inner p-4 max-w-md mx-auto flex flex-col space-y-3">
+    <div id="chatbox" class="h-80 overflow-y-auto p-3 rounded-md bg-pink-100"></div>
+
+    <div class="flex space-x-2">
+      <input
+        id="user-input"
+        type="text"
+        placeholder="Type your message..."
+        class="flex-1 border border-pink-300 rounded-lg p-3 focus:ring-2 focus:ring-pink-400 focus:outline-none"
+      />
+      <button
+        onclick="sendMessage()"
+        class="bg-pink-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-pink-600 transition duration-300"
+      >
+        Send 
+      </button>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="text-center mt-8">
+  <a href="about.html" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+    Next Page
+  </a>
+</div>
+<br><br>
+
+
+<footer class="bg-gray-800 text-gray-300 py-8" role="contentinfo">
+    <div class="container mx-auto px-4 text-center">
+        <div class="mt-4 flex justify-center space-x-6">
+            <a href="https://www.facebook.com/warriorsinpink" class="text-gray-300 hover:text-pink-500 transition-colors duration-200" aria-label="Follow us on Facebook">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.505 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.77-1.63 1.563V12h2.77l-.44 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            <a href="https://www.twitter.com/warriorsinpink" class="text-gray-300 hover:text-pink-500 transition-colors duration-200" aria-label="Follow us on Twitter">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12.917 4.091c-1.12.355-2.296.657-3.528.918 1.15-.71 2.585-1.12 4.17-1.12 3.674 0 6.645 2.97 6.645 6.645s-2.971 6.646-6.645 6.646c-1.397 0-2.693-.435-3.793-1.185-1.076 1.057-2.48 1.76-4.153 1.76-1.585 0-2.923-.49-4.043-1.334 1.25.148 2.54.49 3.843 1.04-.613-.805-1.095-1.748-1.428-2.768-.138-.43-.257-.866-.356-1.306 1.488-.13 2.87-.514 4.085-1.13-1.076-1.25-1.733-2.835-1.733-4.57 0-3.155 2.56-5.716 5.715-5.716 1.54 0 2.97.608 4.04 1.625l.001.001z" />
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/warriorsinpink" class="text-gray-300 hover:text-pink-500 transition-colors duration-200" aria-label="Follow us on Instagram">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.172 6.572a1.472 1.472 0 1 0 0-2.944 1.472 1.472 0 0 0 0 2.944zM12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM12 11a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            <a href="about.html" class="nav-link hover:text-pink-500 transition-colors duration-200">About Us</a>
+            <a href="stories.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Stories</a>
+            <a href="resources.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Resources</a>
+            <a href="hotline.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Hotline</a>
+            <a href="faqs.html" class="nav-link hover:text-pink-500 transition-colors duration-200">FAQs</a>
+             <p>&copy; 2024 Warriors In Pink. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+    
+    <!-- Modal for thank you message -->
+    <div id="thank-you-modal" class="fixed inset-0 bg-gray-600 bg-opacity-75 hidden flex items-center justify-center p-4 z-[100]">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full text-center transform scale-95 transition-transform duration-300">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Thank You!</h3>
+            <p id="modal-text" class="text-gray-600 mb-6">Your message has been submitted successfully.</p>
+            <button id="modal-close-btn" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200">
+                Close
+            </button>
+        </div>
+    </div>
+<script>
+  //  it opens the  popup
+  function openSOSPopup() {
+    document.getElementById('sos-popup').classList.remove('hidden');
+    document.getElementById('sos-popup').classList.add('flex');
+  }
+
+  // closes the popup
+  function closeSOSPopup() {
+    document.getElementById('sos-popup').classList.add('hidden');
+    document.getElementById('sos-popup').classList.remove('flex');
+  }
+
+  //  confirms the SOS call
+  function confirmSOS() {
+    window.location.href = "tel:1195";
+    closeSOSPopup();
+  }
+
+  //  Minimize  chatbot
+  function toggleChat() {
+    const chat = document.getElementById("floating-chatbot");
+    const chatContent = document.getElementById("chat-content");
+    const toggleIcon = document.getElementById("toggle-icon");
+
+  const isMinimized = chatContent.classList.contains("hidden");
+   if (isMinimized) {
+    chatContent.classList.remove("hidden");
+    chat.style.height = "28rem";
+    toggleIcon.textContent = "−";
+  } else {
+    chatContent.classList.add("hidden");
+    chat.style.height = "3rem";
+    toggleIcon.textContent = "+";
+  }
+}
+  
+
+  async function sendMessage() {
+    const input = document.getElementById("user-input");
+    const chatbox = document.getElementById("chatbox");
+    const message = input.value.trim();
+    if (!message) return;
+
+    // User message bubble
+    const userBubble = document.createElement("div");
+    userBubble.className = "bg-pink-500 text-white rounded-lg px-3 py-2 self-end ml-auto w-fit text-sm";
+    userBubble.textContent = message;
+    chatbox.appendChild(userBubble);
+    chatbox.scrollTop = chatbox.scrollHeight;
+    input.value = "";
+
+    // Typing indicator
+    const typing = document.createElement("div");
+    typing.className = "text-gray-400 italic text-xs mt-1";
+    typing.textContent = "typing...";
+    chatbox.appendChild(typing);
+    chatbox.scrollTop = chatbox.scrollHeight;
+
+    try {
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message})
+      });
+      const data = await res.json();
+
+      chatbox.removeChild(typing);
+      const botBubble = document.createElement("div");
+      botBubble.className = "bg-pink-100 text-gray-800 rounded-lg px-3 py-2 w-fit mr-auto text-sm";
+      botBubble.textContent = data.reply;
+      chatbox.appendChild(botBubble);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    } catch {
+      chatbox.removeChild(typing);
+      const err = document.createElement("div");
+      err.className = "text-red-500 text-xs italic";
+      err.textContent = "Oops, something went wrong.";
+      chatbox.appendChild(err);
+    }
+  }
+  // ==========================================================
+    // === 1. AI CHATBOT LOGIC (FIXED) ===
+    // ==========================================================
+    const chatForm = document.getElementById('chat-form');
+    const userInput = document.getElementById('user-input');
+
+    if (chatForm && userInput) {
+        chatForm.addEventListener('submit', async (e) => {
+            // 🚨 CRITICAL FIX: STOP PAGE RELOAD
+            e.preventDefault(); 
+            
+            const message = userInput.value.trim();
+            if (message === '') return;
+
+            // 1. Render User Message and Prepare UI
+            renderMessage('user', message);
+            
+            // Disable input and show loading state
+            userInput.value = '';
+            userInput.disabled = true;
+            const submitButton = chatForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            
+            // Show spinning icon on button
+            submitButton.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>`;
+            
+            // Add a temporary "typing" indicator
+            renderMessage('ai', '<span id="typing-indicator" class="italic text-gray-500">AI Companion is thinking...</span>');
+            
+            // 2. Send Message to Flask Backend (Fetch)
+            try {
+                const response = await fetch('/chat', { 
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+                
+                // Remove typing indicator
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator && typingIndicator.parentNode) {
+                    typingIndicator.parentNode.remove();
+                }
+
+                if (response.ok) {
+                    // Render the AI's response
+                    renderMessage('ai', data.response); 
+                } else {
+                    renderMessage('ai', `<span class="text-red-600 font-bold">Error: ${data.error || 'Server responded with an error.'}</span>`);
+                }
+
+            } catch (error) {
+                console.error('Fetch error:', error);
+                // Remove typing indicator
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator && typingIndicator.parentNode) {
+                    typingIndicator.parentNode.remove();
+                }
+                renderMessage('ai', `<span class="text-red-600 font-bold">Network Error: Could not connect to the server. Please check your network.</span>`);
+            } finally {
+                // Re-enable input and reset button UI
+                userInput.disabled = false;
+                submitButton.disabled = false;
+                submitButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
+                userInput.focus();
+            }
+        });
+    }
+
+</script>
+
+<!-- Tailwind CSS CDN for styling -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Custom JS file -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    </body>
+</html>
+        

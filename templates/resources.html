@@ -8,7 +8,7 @@
     <meta name="keywords" content="support, survivors, violence, abuse, healing,
     community, resources, hotline">
     <link rel="stylesheet" href="style.css">
-     <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </head>
 <body class="antialiased">
     <header class="bg-white shadow-lg sticky top-0 z-50">
@@ -26,58 +26,48 @@
             </button>
             <div id="nav-menu" class="hidden w-full md:flex md:items-center md:w-auto mt-4 md:mt-0">
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg">
-                    <li><a href="index.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Welcome</a></li>
-                    <li><a href="about.html" class="nav-link hover:text-pink-500 transition-colors duration-200">About Us</a></li>
-                    <li><a href="stories.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Stories</a></li>
-                    <li><a href="resources.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Resources</a></li>
-                    <li><a href="hotline.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Hotline</a></li>
-                </ul>
+                   <li><a href="about.html" class="nav-link hover:text-pink-500 transition-colors duration-200">About Us</a></li>
+                   <li><a href="stories.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Stories</a></li>
+                   <li><a href="resources.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Resources</a></li>
+                   <li><a href="hotline.html" class="nav-link hover:text-pink-500 transition-colors duration-200">Hotline</a></li>
+                   <li><a href="faqs.html" class="nav-link hover:text-pink-500 transition-colors duration-200">FAQs</a></li>
+                   </ul>
             </div>
         </nav>
     </header>
 
     <main class="container mx-auto px-4 py-8 md:py-16">
-        <section id="about" class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-10 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-            <div class="md:w-2/3">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">About Us</h1>
-                <p class="text-lg md:text-xl text-gray-600">Warriors In Pink is more than just a support group — we are a <strong>safe haven</strong>, a family, and a voice for survivors of abuse and violence. 💕</p>
-                <p class="text-lg text-gray-600 mb-4">We understand that healing isn’t linear. Some days are heavy, and others feel lighter. That’s why our mission is to <em>walk with you through every step of your journey</em> — You are not alone. 🌷</p>
-                <p class="text-lg text-gray-600">Founded by survivors, for survivors. We believe in the strength of sisterhood and the power of shared stories. Together, we rise.</p>
-            </div>
-            <div class="md:w-1/3 w-full">
-                <img src="https://plus.unsplash.com/premium_photo-1723485690961-729f9b7818d3?q=80&w=844&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A symbolic image of a woman finding peace" class="rounded-lg shadow-md w-full">
-            </div>
+        <section id="resources" class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Relevant Resources</h2>
+            <p class="text-lg text-gray-600">Access a variety of resources to support your healing journey. From articles and guides to support groups and peer support, we have everything you need.</p>
+            <ul class="space-y-4">
+    <li>
+        <a href="https://www.rainn.org/" target="_blank" class="block bg-pink-100 p-4 rounded-lg shadow-sm hover:bg-pink-200 transition-colors duration-200">
+            <h4 class="text-xl font-semibold text-pink-700">RAINN (Rape, Abuse & Incest National Network)</h4>
+            <p class="text-gray-600 mt-1">America's largest anti-sexual violence organization. Offers a national hotline, resources, and support.</p>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.thehotline.org/" target="_blank" class="block bg-pink-100 p-4 rounded-lg shadow-sm hover:bg-pink-200 transition-colors duration-200">
+            <h4 class="text-xl font-semibold text-pink-700">The National Domestic Violence Hotline</h4>
+            <p class="text-gray-600 mt-1">Provides essential tools and support to help survivors of domestic violence.</p>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.womenslaw.org/" target="_blank" class="block bg-pink-100 p-4 rounded-lg shadow-sm hover:bg-pink-200 transition-colors duration-200">
+            <h4 class="text-xl font-semibold text-pink-700">WomensLaw.org</h4>
+            <p class="text-gray-600 mt-1">Legal information and support for survivors of domestic violence and sexual assault.</p>
+        </a>
+    </li>
+</ul>
         </section>
     </main>
-    <section id="community-signup" class="bg-pink-50 rounded-xl shadow-lg p-6 md:p-12 mb-10 text-center">
-    <h2 class="text-3xl font-bold text-pink-700 mb-4">Become a Part of Our Community 💖</h2>
-    <p class="text-lg text-gray-700 mb-6">Join a network of support, strength, and sisterhood. Sign up to receive our newsletter and updates on upcoming events.</p>
-    <form id="community-form" class="max-w-md mx-auto space-y-4">
-        <div>
-            <label for="email" class="sr-only">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address..." required class="w-full px-4 py-3 border border-pink-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 text-center md:text-left">
-        </div>
-        <button type="submit" class="w-full bg-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200 shadow-md transform hover:scale-105">
-            Sign Up
-        </button>
-    </form>
-</section>
         <div class="text-right mt-8">
-  <a href="stories.html" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+  <a href="hotline.html" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
     Next Page →
   </a>
 </div>
 <br><br>
-<div id="signup-modal" class="fixed inset-0 bg-gray-600 bg-opacity-75 hidden flex items-center justify-center p-4 z-[100]">
-    <div class="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full text-center transform scale-95 transition-transform duration-300">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Thank You!</h3>
-        <p id="modal-text" class="text-gray-600 mb-6">You are now a Warrior in Pink 💖</p>
-        <button id="modal-close-btn-signup" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200">
-            Close
-        </button>
-    </div>
-</div>
-</body>
 
 <footer class="bg-gray-800 text-gray-300 py-8" role="contentinfo">
     <div class="container mx-auto px-4 text-center">
@@ -102,6 +92,7 @@
         </div>
     </div>
 </footer>
+    
     <!-- Modal for thank you message -->
     <div id="thank-you-modal" class="fixed inset-0 bg-gray-600 bg-opacity-75 hidden flex items-center justify-center p-4 z-[100]">
         <div class="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full text-center transform scale-95 transition-transform duration-300">
